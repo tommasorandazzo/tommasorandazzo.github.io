@@ -1,0 +1,11 @@
+@layer utilities {
+  /** Visually Hidden */
+  .visually-hidden {
+    position: absolute !important; /* stylelint-disable-line declaration-no-important */
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    word-wrap: normal;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+}

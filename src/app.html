@@ -1,12 +1,25 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/05c35ebe78.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="%sveltekit.assets%/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
+  <link rel="shortcut icon" href="%sveltekit.assets%/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" />
+  <link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
+  %sveltekit.head%
+</head>
+
+<body data-sveltekit-preload-data="hover" class="p-1 md:p-2">
+  <div
+    class="rounded-4xl drop-shadow-xl bg-primary-5 border-solid border-transparent font-sans text-offwhite text-base m-auto min-h-[calc(100vh-var(--spacing)*2)] md:min-h-[calc(100vh-var(--spacing)*4)] w-full max-w-(--content-max-width) box-border mr-auto ml-auto lg:pr-6 lg:pl-6 md:pr-4 md:pl-4 pr-2 pl-2'">
+    %sveltekit.body%</div>
+</body>
+
 </html>

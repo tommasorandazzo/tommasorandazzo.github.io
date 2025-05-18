@@ -1,3 +1,37 @@
+@layer theme, base, components, utilities;
+
 @import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
+@import 'tailwindcss/preflight.css' layer(base);
+@import './_inline.css';
+@import './_utilities.css';
+@import './_variables.css';
+
+@utility container {
+  max-width: var(--breakpoint-2xl);
+}
+
+:root {
+  background-color: var(--color-nearblack);
+}
+
+body,
+body * {
+  transition: all var(--tw-ease, var(--default-transition-timing-function)) var(--tw-duration, var(--default-transition-duration));
+}
+
+header {
+  /* Add clip-path via css */
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--spacing) * 4) 100%, calc(var(--spacing) * 4) 100%);
+}
+
+*,
+*::after,
+*::before {
+  scroll-margin-top: calc(var(--spacing) * 4);
+  outline-color: var(--color-secondary-1);
+}
+
+button,
+a {
+  cursor: pointer;
+}

@@ -1,0 +1,50 @@
+{
+  "folders": [
+    {
+      "name": "Project Root",
+      "path": "."
+    },
+    {
+      "name": "src",
+      "path": "src"
+    },
+    {
+      "name": "components",
+      "path": "src/components"
+    },
+    {
+      "name": "lib",
+      "path": "src/lib"
+    },
+    {
+      "name": "routes",
+      "path": "src/routes"
+    }
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+      "titleBar.activeForeground": "#2b2b2b",
+      "titleBar.inactiveForeground": "#fff",
+      "titleBar.activeBackground": "#A399F2",
+      "titleBar.inactiveBackground": "#514C78"
+    },
+    "php.suggest.basic": false,
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Listen for XDebug",
+        "type": "php",
+        "request": "launch",
+        "port": 9003,
+        "pathMappings": {
+          "/app/": "./"
+        },
+        "xdebugSettings": {
+          "show_hidden": 1
+        }
+      }
+    ]
+  }
+}
