@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "name": "Project Root",
+      "path": "."
+    },
+    {
+      "name": "Public",
+      "path": "public"
+    },
+    {
+      "name": "src",
+      "path": "src"
+    },
+    {
+      "name": "components",
+      "path": "src/components"
+    },
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+      "titleBar.activeForeground": "#e7e5f2",
+      "titleBar.inactiveForeground": "#fff",
+      "titleBar.activeBackground": "#35324f",
+      "titleBar.inactiveBackground": "#262338"
+    },
+    "php.suggest.basic": false,
+  }
+}

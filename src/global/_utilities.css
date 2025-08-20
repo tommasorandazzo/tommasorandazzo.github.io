@@ -1,0 +1,41 @@
+@layer utilities {
+  /* Animated Underline (show on hover) */
+  .animated-underline {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 1px;
+    transition: all 0ms, background-size 500ms, color 500ms;
+    transform: bottom left;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-size: 100% 1px;
+    }
+  }
+
+  /* Animated Underline - Inverse (hide on hover) */
+  .animated-underline.reverse {
+    background-position: 0 100%;
+    background-size: 100% $width;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-position: 100% 100%;
+      background-size: 0 $width;
+    }
+  }
+
+  /** Visually Hidden */
+  .visually-hidden {
+    position: absolute !important; /* stylelint-disable-line declaration-no-important */
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    word-wrap: normal;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+}

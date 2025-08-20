@@ -1,0 +1,71 @@
+@theme {
+  /* -- Colors -- */
+  --color-primary-5: #35324f;
+  --color-primary-4: #514c78;
+  --color-primary: #69629b;
+  --color-primary-1: #887fc9;
+  --color-primary-2: #a399f2;
+  --color-primary-3: #C5BFF8;
+  --color-secondary: #629c7f;
+  --color-secondary-1: #7fc9a4;
+  --color-neutral-5: #615663;
+  --color-neutral-4: #7d6e78;
+  --color-neutral: #ab9fa7;
+  --color-neutral-1: #d9d1d6;
+  --color-neutral-2: #efeaed;
+  --color-offwhite: #e7e5f2;
+  --color-nearblack: #262338;
+  --color-charcoal: #242424;
+
+  --color-error: #BC5140;
+  --color-error-1: #F48576;
+
+  /* -- Fonts -- */
+  /* Sizes */
+  --text-base: 18px;
+  /* H1 */
+  --text-title: 72px;
+  /* H2 */
+  --text-xl: 56px;
+  /* H3 */
+  --text-large: 48px;
+  /* H4 */
+  --text-medium: 40px;
+  /* H5 */
+  --text-small: 32px;
+  /* H6 */
+  --text-xs: 26px;
+
+  /* Title */
+  --font-cal-sans: 'Cal Sans', Verdana, sans-serif;
+  --font-title: var(--font-cal-sans);
+
+  /* Heading */
+  --font-outfit: 'Outfit', Trebuchet, sans-serif;
+  --font-heading-eading: var(--font-outfit);
+
+  /* Sans-serif body */
+  --font-manrope:
+    'Manrope', 'Ubuntu', 'Roboto', Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-manrope);
+
+  /* Serif body */
+  --font-ibm-plex-serif:
+    'IBM Plex Serif', Georgia, 'Times New Roman', Times, serif;
+  --font-serif: var(--font-ibm-plex-serif);
+
+  /* -- Spacing -- */
+  --spacing: 16px;
+  --content-max-width: var(--breakpoint-2xl);
+  --header-offset: var(--drupal-displace-offset-top, 0);
+
+  /* -- Transition -- */
+  --default-transition-duration: 400ms;
+
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 920px;
+  --breakpoint-laptop: 1200px;
+  --breakpoint-desktop: 1440px;
+  --breakpoint-xl: var(--breakpoint-laptop);
+  --breakpoint-2xl: var(--breakpoint-desktop);
+}
