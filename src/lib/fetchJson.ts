@@ -8,9 +8,10 @@ import createHttpHeaders from './createHttpHeaders';
  *  The URL endpoint.
  */
 export default async (url: string) => {
-  // if (url.startsWith('/')) {
-  //   url = import.meta.env.VITE_API_URL + url;
-  // }
+  if (url.startsWith('/')) {
+    // Assume endpoint if not absolute URL.
+    url = import.meta.env.VITE_API_URL + url;
+  }
 
   return await fetch(url, {
     headers: await createHttpHeaders(),

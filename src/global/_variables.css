@@ -1,5 +1,6 @@
 @theme {
   /* -- Colors -- */
+  --color-primary-6: #262338;
   --color-primary-5: #35324f;
   --color-primary-4: #514c78;
   --color-primary: #69629b;
@@ -8,33 +9,39 @@
   --color-primary-3: #C5BFF8;
   --color-secondary: #629c7f;
   --color-secondary-1: #7fc9a4;
+  --color-secondary-2: #E2FFE5;
   --color-neutral-5: #615663;
   --color-neutral-4: #7d6e78;
   --color-neutral: #ab9fa7;
   --color-neutral-1: #d9d1d6;
   --color-neutral-2: #efeaed;
   --color-offwhite: #e7e5f2;
-  --color-nearblack: #262338;
+  --color-nearblack: #1E1B2B;
   --color-charcoal: #242424;
 
+  --color-error-4: #8A1B0A;
   --color-error: #BC5140;
   --color-error-1: #F48576;
+  --color-error-2: #FBDEDB;
 
   /* -- Fonts -- */
   /* Sizes */
-  --text-base: 18px;
+  --text-base: clamp(20px, calc(24 / 1280 * 1vw), 24px);
   /* H1 */
-  --text-title: 72px;
+  --text-title: clamp(64px, calc(72 / 1280 * 1vw), 72px);
   /* H2 */
-  --text-xl: 56px;
+  --text-xl: clamp(56px, calc(64 / 1280 * 1vw), 64px);
   /* H3 */
-  --text-large: 48px;
+  --text-large: clamp(40px, calc(48 / 1280 * 1vw), 40px);
+  --text-lg: clamp(40px, calc(48 / 1280 * 1vw), 40px);
   /* H4 */
-  --text-medium: 40px;
+  --text-medium: clamp(30px, calc(36 / 1280 * 1vw), 36px);
+  --text-md: clamp(30px, calc(36 / 1280 * 1vw), 36px);
   /* H5 */
-  --text-small: 32px;
+  --text-small: clamp(24px, calc(28 / 1280 * 1vw), 28px);
+  --text-sm: clamp(24px, calc(28 / 1280 * 1vw), 28px);
   /* H6 */
-  --text-xs: 26px;
+  --text-xs: clamp(20px, calc(24 / 1280 * 1vw), 24px);
 
   /* Title */
   --font-cal-sans: 'Cal Sans', Verdana, sans-serif;
@@ -61,11 +68,4 @@
 
   /* -- Transition -- */
   --default-transition-duration: 400ms;
-
-  --breakpoint-*: initial;
-  --breakpoint-tablet: 920px;
-  --breakpoint-laptop: 1200px;
-  --breakpoint-desktop: 1440px;
-  --breakpoint-xl: var(--breakpoint-laptop);
-  --breakpoint-2xl: var(--breakpoint-desktop);
 }

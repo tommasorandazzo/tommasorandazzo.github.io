@@ -1,27 +1,15 @@
 /**
  * createHttpHeaders
  * @param {object} values A key/value object for custom header values.
- * @returns {Promise<Headers>}
+ * @returns {Headers}
  */
-export default async (values = {}) => {
+export default (values = {}) => {
   // Set up header values.
   const headerValues: any = {
     'Content-Type': 'application/json',
     ...values,
   };
 
-  // Add session token
-  await fetch('/session/token')
-    .then(response => response.text())
-    .then(
-      token => {
-        headerValues['X-CSRF-Token'] = token;
-      },
-      error => console.error(error),
-    );
-
   // Set up and return headers.
-  const headers = new Headers(headerValues);
-
-  return headers;
+  return new Headers(headerValues);
 };

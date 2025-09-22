@@ -5,6 +5,10 @@
       "path": "."
     },
     {
+      "name": "Content",
+      "path": "content"
+    },
+    {
       "name": "Public",
       "path": "public"
     },
@@ -25,5 +29,6 @@
       "titleBar.inactiveBackground": "#262338"
     },
     "php.suggest.basic": false,
+    "liveServer.settings.multiRootWorkspaceName": "Project Root",
   }
 }

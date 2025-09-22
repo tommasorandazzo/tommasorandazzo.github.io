@@ -1,34 +1,4 @@
 @layer utilities {
-  /* Animated Underline (show on hover) */
-  .animated-underline {
-    text-decoration: none;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 0 1px;
-    transition: all 0ms, background-size 500ms, color 500ms;
-    transform: bottom left;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-size: 100% 1px;
-    }
-  }
-
-  /* Animated Underline - Inverse (hide on hover) */
-  .animated-underline.reverse {
-    background-position: 0 100%;
-    background-size: 100% $width;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-position: 100% 100%;
-      background-size: 0 $width;
-    }
-  }
-
   /** Visually Hidden */
   .visually-hidden {
     position: absolute !important; /* stylelint-disable-line declaration-no-important */
@@ -38,4 +8,100 @@
     word-wrap: normal;
     clip: rect(1px, 1px, 1px, 1px);
   }
+
+  .clip-path-hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    aspect-ratio: 45 / 39;
+  }
+
+  [class*="after:clip-path-hexagon"] {
+    &::after {
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      aspect-ratio: 45 / 39;
+    }
+  }
+
+  h1 {
+    @apply text-title mb-1;
+  }
+
+  h2 {
+    @apply text-xl mb-2;
+  }
+
+  h3 {
+    @apply text-large mb-1 leading-[1.125];
+  }
+
+  h4 {
+    @apply text-medium mb-0.75;
+  }
+
+  h5 {
+    @apply text-small mb-0.75;
+  }
+
+  h6 {
+    @apply text-xs mb-0.75 font-bold capitalize;
+  }
+
+  p {
+    @apply text-base mt-0.75 mb-0.75;
+
+    &:first-child {
+      @apply mt-0;
+    }
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
+  ul:not([class]) {
+    @apply text-base list-disc ml-1;
+  }
+
+  ol:not([class]) {
+    @apply text-base list-decimal ml-1;
+  }
+
+  /* Animated Underline (show on hover) */
+  .animated-underline {
+    @apply no-underline bg-linear-to-r from-current to-current bg-bottom-left bg-size-[100%_1px] hover:bg-size-[0_1px] bg-no-repeat transition-[background-size] duration-initial ease-in-out;
+  }
+
+  /* Animated Underline - Inverse (hide on hover) */
+  .animated-underline-reverse {
+    @apply no-underline bg-linear-to-r from-current to-current bg-bottom-left bg-size-[0_1px] hover:bg-size-[100%_1px] bg-no-repeat transition-[background-size] duration-initial ease-in-out;
+  }
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ReactModal__Overlay {
+    @apply z-1 bg-black/40 transition opacity-0 p-1 md:p-3 overflow-y-auto;
+  }
+
+  .ReactModal__Overlay--after-open{
+    @apply opacity-100;
+  }
+
+  .ReactModal__Overlay--before-close{
+    @apply opacity-0;
+  }
+
+  .ReactModal__Content {
+    @apply bg-nearblack border-0 shadow-xl m-auto p-2 pl-2 pr-2 rounded-xl max-w-6xl transition -translate-y-full overflow-auto;
+  }
+
+  .ReactModal__Content--after-open{
+    @apply translate-y-0;
+  }
+
+  .ReactModal__Content--before-close{
+    @apply -translate-y-full;
+  }
+
 }
