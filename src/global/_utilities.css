@@ -65,14 +65,8 @@
     @apply text-base list-decimal ml-1;
   }
 
-  /* Animated Underline (show on hover) */
-  .animated-underline {
-    @apply no-underline bg-linear-to-r from-current to-current bg-bottom-left bg-size-[100%_1px] hover:bg-size-[0_1px] bg-no-repeat transition-[background-size] duration-initial ease-in-out;
-  }
-
-  /* Animated Underline - Inverse (hide on hover) */
-  .animated-underline-reverse {
-    @apply no-underline bg-linear-to-r from-current to-current bg-bottom-left bg-size-[0_1px] hover:bg-size-[100%_1px] bg-no-repeat transition-[background-size] duration-initial ease-in-out;
+  a {
+    @apply text-secondary-1 animated-underline;
   }
 
   .container {
@@ -104,4 +98,15 @@
     @apply -translate-y-full;
   }
 
+}
+
+/* Animated Underline (hide on hover) */
+@utility animated-underline {
+  @apply no-underline bg-linear-to-r from-current to-current bg-bottom-left bg-size-[100%_1px] hover:bg-size-[0_1px] bg-no-repeat transition-[background-size] duration-initial ease-in-out;
+}
+
+/* Animated Underline - Inverse (show on hover) */
+
+@utility animated-underline-reverse {
+  @apply no-underline bg-linear-to-r from-current to-current bg-bottom-left bg-size-[0_1px] hover:bg-size-[100%_1px] bg-no-repeat transition-[background-size] duration-initial ease-in-out;
 }

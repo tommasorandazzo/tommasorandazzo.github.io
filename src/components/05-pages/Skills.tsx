@@ -60,11 +60,9 @@ export default ({ }) => {
               </SplideSlide>
               {Skills.map(skill => (
                 <SplideSlide key={skill.id}>
-                  <div className="max-w-2xl container pt-2">
+                  <div className="max-w-2xl container pt-2 text-center">
                     <h3>{skill.name}</h3>
-                    <div className="text-center">
-                      <SkillDescription id={skill.id} />
-                    </div>
+                    <SkillDescription id={skill.id} />
                   </div>
                 </SplideSlide>
               ))}

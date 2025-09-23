@@ -3,20 +3,25 @@ import Contact from '../../../content/Contact/contact-body.mdx';
 import Button from '../01-atoms/Button';
 import Input from '../01-atoms/Input';
 import createHttpHeaders from '../../lib/createHttpHeaders';
-import Captcha from '../01-atoms/Captcha';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SocialLinks from '../02-molecules/SocialLinks';
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
+import fetchJson from '../../lib/fetchJson';
 
 export default () => {
   const [errorMessage, setErrorMessage] = useState<string|ReactNode>('')
   const [confirmation, setConfirmation] = useState(false)
-  const [captchaSuccess, setCaptchaSuccess] = useState<string|false>(false)
-  const captchaRef = useRef('');
+  const [captchaSuccess, setCaptchaSuccess] = useState<string>('')
+  const [turnstileAttrs, setTurnstileAttrs] = useState({
+    siteKey: '',
+    options: {},
+  });
+  const captchaRef = useRef<TurnstileInstance>(null);
 
   async function submitForm(event: FormEvent) {
     event.preventDefault();
 
-    if (!captchaSuccess) {
+    if (!captchaSuccess && captchaRef.current) {
       // Check for captcha first.
       setErrorMessage((
         <>CAPTCHA Failed.<br /><Button small onclick={() => captchaRef.current?.reset()}>Retry CAPTCHA?</Button></>
@@ -27,14 +32,16 @@ export default () => {
     const form = event.currentTarget;
     if (!(form instanceof HTMLFormElement)) return;
     const data = new FormData(form);
-    const fieldValues = Object.fromEntries(data.entries());
+    const fieldValues: { [key: string]: string } = {
+      ...Object.fromEntries(data.entries()),
+      captcha: captchaSuccess,
+    };
 
-    delete fieldValues['cf-turnstile-response'];
-    fieldValues.captcha = captchaSuccess;
+    if (Object.hasOwn(fieldValues, 'cf-turnstile-response')) delete fieldValues['cf-turnstile-response'];
 
     fetch(import.meta.env.VITE_API_URL + '/api/contact/submit', {
       method: 'POST',
-      headers: createHttpHeaders(),
+      headers: createHttpHeaders(true),
       body: JSON.stringify(fieldValues),
     })
       .then(response => response.json())
@@ -57,9 +64,31 @@ export default () => {
       );
   }
 
+  async function getTurnstileData() {
+    await fetchJson('/api/contact/captcha', true).then(
+      response => {
+        setTurnstileAttrs({
+          siteKey: response.site_key,
+          options: {
+            appearance: response.appearance,
+            language: response.language,
+            retry: response.retry,
+            retry_interval: response.retry_interval,
+            size: response.size,
+            theme: response.theme,
+          }
+        });
+      }
+    );
+  }
+
   useEffect(() => {
     if (window.localStorage.getItem('contact-form-filled')) {
       setConfirmation(true);
+    }
+
+    if (!turnstileAttrs.siteKey) {
+      getTurnstileData;
     }
   }, [confirmation])
 
@@ -93,13 +122,13 @@ export default () => {
                 <Input label='Name' type='text' id='name' required />
                 <Input label='Email' type='email' id='email' required />
                 <Input label='Company/Organization' type='text' id='company_organization' />
-                <Input label='Subject' type='text' id='subject' />
+                <Input label='Subject' type='text' id='subject' required />
                 <Input label='Message' type='textarea' id='message' required />
-                <Captcha
-                  onSuccess={token => {
-                    setCaptchaSuccess(token);
-                  }}
+                <Turnstile
+                  className='mt-1 mb-1'
+                  onSuccess={(token) => setCaptchaSuccess(token)}
                   ref={captchaRef}
+                  {...turnstileAttrs}
                 />
                 <Button>Send Message</Button>
               </form>

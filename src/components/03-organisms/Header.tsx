@@ -35,7 +35,7 @@ export default () => {
   return (
     <header className="bg-primary-6 sticky top-0 left-0 w-full p-0.5 pl-0 pr-0 shadow-xl/5 z-1">
       <div className="container flex justify-between items-center pl-1 pr-1">
-        <a href="#" onClick={() => setTimeout(() => setActiveMenuItem(''), 500)}>
+        <a href="#" onClick={() => setTimeout(() => setActiveMenuItem(''), 500)} className="bg-none">
           <img className="w-2.5" src="/logo.svg" alt="tommaso.cc" />
           <span className="visually-hidden">Home</span>
         </a>
@@ -43,7 +43,7 @@ export default () => {
           <ul className="flex flex-wrap gap-1 m-0 p-0 items-center">
             {pageIds.filter(i => i !== 'about').map(pageId => (
               <li key={pageId}>
-                <a href={`#${pageId}`} className={`${activeMenuItem === pageId ? 'no-underline bg-linear-to-r from-current to-current bg-bottom-left bg-size-[100%_1px] bg-no-repeat transition-[background-size] duration-300 ease-in-out' : 'animated-underline-reverse'} font-bold`}>{pages[pageId].title}</a>
+                <a href={`#${pageId}`} className={`font-bold text-white ${activeMenuItem !== pageId &&'animated-underline-reverse'}`}>{pages[pageId].title}</a>
               </li>
             ))}
           </ul>
