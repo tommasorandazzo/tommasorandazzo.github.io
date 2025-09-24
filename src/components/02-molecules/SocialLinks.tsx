@@ -1,7 +1,14 @@
 import SocialLinks from '../../../content/_SocialLinks'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-export default ({  }) => {
+export default ({ hideLocal = false }) => {
+  if (hideLocal) {
+    SocialLinks.forEach((link, i) => {
+      if (!link.url.startsWith('http')) {
+        delete SocialLinks[i];
+      }
+    })
+  }
   return (
     <ul className='flex m-1 justify-center gap-0.5'>
       {SocialLinks.map(link => (

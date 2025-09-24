@@ -2,6 +2,8 @@ import { useEffect, useState, type ComponentType } from 'react'
 import Modal, { ModalTransitionTime } from '../03-organisms/Modal'
 import WorkItems from '../../../content/Work/_Work'
 import Card from '../02-molecules/Card'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from '../01-atoms/Button';
 
 const modules: { [key: string]: { default: ComponentType<any> } } = import.meta.glob('/content/Work/**.mdx', { eager: true });
 
@@ -54,13 +56,13 @@ export default ({ }) => {
             <li key={id} className='basis-md flex-0 max-w-full'>
               <Card
                 heading={item.title}
-                imageSrc={item.imageSrc}
-                imageAlt={item.imageAlt || item.title}
-                description={(<p>{item.description}</p>)}
+                imageSrc={`/work/${id}-small.jpg`}
+                imageAlt={item.title + ' website.'}
+                description={(<p className='text-small'>{item.description}</p>)}
                 ctaOnclick={() => openWorkItem(id)}
                 classes={['h-full']}
                 ctaText={(
-                  <>View More <span className='visually-hidden'>about {item.title}</span></>
+                  <>Learn More <span className='visually-hidden'>about {item.title}</span></>
                 )}
               />
             </li>
@@ -71,9 +73,16 @@ export default ({ }) => {
         {WorkItems && activeWorkItem && (
           <>
             <a id={activeWorkItem}></a>
-            <img src={WorkItems[activeWorkItem].imageSrc} alt={WorkItems[activeWorkItem].imageAlt || WorkItems[activeWorkItem].title} className="w-full h-auto" />
-            <h2>{WorkItems[activeWorkItem]?.title}</h2>
-            <Description id={activeWorkItem}/>
+            <img src={`/work/${activeWorkItem}-full.jpg`} alt={WorkItems[activeWorkItem].title + ' website.'} className="w-full h-auto" />
+            <div className='max-w-3xl container'>
+              <div className="flex justify-between align-baseline mt-2 mb-2">
+                <h2 className='m-0'>{WorkItems[activeWorkItem]?.title}</h2>
+                <Button inverse url={WorkItems[activeWorkItem]?.link} classes={['border-none']} attributes={{target: '_blank'}}>
+                  <FontAwesomeIcon size='2xl' icon={['fas', 'arrow-up-right-from-square']} />
+                </Button>
+              </div>
+              <Description id={activeWorkItem}/>
+            </div>
           </>
         )}
       </Modal>

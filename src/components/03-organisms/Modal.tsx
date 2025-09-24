@@ -45,7 +45,7 @@ export default ({ isOpen = false, closeModal, label, children }: Modal) => {
     >
       {/* <div className="bg-nearblack border-0 shadow-xl mt-2 ml-auto mr-auto p-1 pl-2 pr-2 rounded-xl w-full max-w-6xl transition -translate-y-full overflow-auto max-h-[calc(100vh-(var(--spacing)*4))]"> */}
         {children}
-        <div className="flex justify-center gap-1 mt-1 mb-1">
+        <div className="flex justify-center gap-1 mt-1 md:mt-3">
           <Button small onclick={closeModal}>Close</Button>
         </div>
       {/* </div> */}

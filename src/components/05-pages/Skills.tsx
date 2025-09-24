@@ -12,6 +12,7 @@ const splideOptions: { [key: string]: any } = {
   drag: false,
   snap: true,
   autoplay: false,
+  autoHeight: true,
 };
 
 const modules: { [key: string]: { default: ComponentType<any> } } = import.meta.glob('/content/Skills/**.mdx', { eager: true });
@@ -39,7 +40,7 @@ export default ({ }) => {
               {Skills.map(skill => (
                 <li key={skill.id} className='inline-block w-[calc(100%*2/9)] even:mt-[9.5%] first:ml-5% not-first:ml-[-5%]'>
                   <button
-                    className={`after:content-[''] after:-z-1 after:w-[calc(100%-12px)] after:h-[calc(100%-12px)] after:absolute after:top-1/2 after:left-1/2 after:-translate-1/2 after:transition-all after:clip-path-hexagon clip-path-hexagon w-full h-auto grid place-items-center relative box-border p-[4%] pr-[25%] pl-[25%] shadow-2xl font-bold ${currentSlide === Skills.indexOf(skill) + 1 ? 'after:bg-primary-1 bg-secondary-1 text-secondary-1 shadow' : 'after:bg-primary-1 hover:after:bg-primary focus:after:bg-primary hover:bg-secondary-1 focus:bg-secondary-1 hover:text-secondary-1 focus:text-secondary-1 bg-primary-5 text-primary-5 hover:shadow focus:shadow'}`}
+                    className={`after:content-[''] after:-z-1 after:w-[calc(100%-6px)] md:after:w-[calc(100%-12px)] after:h-[calc(100%-6px)] md:after:h-[calc(100%-12px)] after:absolute after:top-1/2 after:left-1/2 after:-translate-1/2 after:transition-all after:clip-path-hexagon clip-path-hexagon w-full h-auto grid place-items-center relative box-border p-[4%] pr-[25%] pl-[25%] shadow-2xl font-bold ${currentSlide === Skills.indexOf(skill) + 1 ? 'after:bg-primary-1 bg-secondary-1 text-secondary-1 shadow' : 'after:bg-primary-1 hover:after:bg-primary focus:after:bg-primary hover:bg-secondary-1 focus:bg-secondary-1 hover:text-secondary-1 focus:text-secondary-1 bg-primary-5 text-primary-5 hover:shadow focus:shadow'}`}
                     onClick={() => {
                       const index: number = Skills.indexOf(skill) + 1;
                       const splide: typeof Splide = splideRef.current;

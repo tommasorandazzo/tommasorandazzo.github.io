@@ -5,10 +5,10 @@ export default ({ imageAlt, imageSrc, heading, description, ctaLink, ctaOnclick,
   return (
     <div className={`border-1 rounded-xl p-0 overflow-hidden ${classes && typeof classes === 'string' ? classes : classes?.join('')}`}>
       {imageSrc && (
-        <img src={imageSrc} alt={imageAlt} className="w-full h-auto" />
+        <img src={imageSrc} alt={imageAlt || ''} className="w-full h-auto aspect-[3/2] object-cover border-b-1 bg-primary" />
       )}
       <div className="p-1 pb-2 flex flex-col items-start justify-start">
-        <h3 className="mt-0">{heading}</h3>
+        <h3 className="mt-1 mb-0">{heading}</h3>
         {description}
         {ctaText && ctaLink || ctaOnclick && <Button onclick={ctaOnclick} classes={['mt-0.5']}>{ctaText}</Button>}
       </div>

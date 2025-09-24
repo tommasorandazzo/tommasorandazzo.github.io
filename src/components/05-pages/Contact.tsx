@@ -88,7 +88,7 @@ export default () => {
     }
 
     if (!turnstileAttrs.siteKey) {
-      getTurnstileData;
+      getTurnstileData();
     }
   }, [confirmation])
 
@@ -96,9 +96,9 @@ export default () => {
     <>
       <h2>Contact</h2>
       <div className='md:flex gap-1 gap-x-2 lg:gap-x-4'>
-        <div className='flex-1'>
+        <div className='flex-1 mb-4'>
           <Contact />
-          <SocialLinks />
+          <SocialLinks hideLocal />
         </div>
         <div className='flex-1'>
           {confirmation ? (
@@ -124,12 +124,14 @@ export default () => {
                 <Input label='Company/Organization' type='text' id='company_organization' />
                 <Input label='Subject' type='text' id='subject' required />
                 <Input label='Message' type='textarea' id='message' required />
-                <Turnstile
-                  className='mt-1 mb-1'
-                  onSuccess={(token) => setCaptchaSuccess(token)}
-                  ref={captchaRef}
-                  {...turnstileAttrs}
-                />
+                {turnstileAttrs.siteKey && (
+                  <Turnstile
+                    className='mt-1 mb-1'
+                    onSuccess={(token) => setCaptchaSuccess(token)}
+                    ref={captchaRef}
+                    {...turnstileAttrs}
+                  />
+                )}
                 <Button>Send Message</Button>
               </form>
             </>

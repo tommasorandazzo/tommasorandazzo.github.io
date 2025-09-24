@@ -40,10 +40,10 @@ export default () => {
           <span className="visually-hidden">Home</span>
         </a>
         {pageIds.length > 0 && (
-          <ul className="flex flex-wrap gap-1 m-0 p-0 items-center">
+          <ul className="flex flex-wrap gap-0.5 md:gap-1 m-0 p-0 items-center">
             {pageIds.filter(i => i !== 'about').map(pageId => (
               <li key={pageId}>
-                <a href={`#${pageId}`} className={`font-bold text-white ${activeMenuItem !== pageId &&'animated-underline-reverse'}`}>{pages[pageId].title}</a>
+                <a href={`#${pageId}`} className={`font-bold font-heading text-xs text-white ${activeMenuItem !== pageId &&'animated-underline-reverse'}`}>{pages[pageId].title}</a>
               </li>
             ))}
           </ul>

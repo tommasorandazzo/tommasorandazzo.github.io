@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export default ({ url, small, inverse, onclick, children, classes }: {url?: string, onclick?: any, children: string|ReactNode, small?: boolean, inverse?: boolean, classes?: string[] }) => {
+export default ({ url, small, inverse, onclick, children, classes, attributes }: {url?: string, onclick?: any, children: string|ReactNode, small?: boolean, inverse?: boolean, classes?: string[], attributes?: { [key: string]: string } }) => {
   const Element = url ? 'a' : 'button';
 
   const buttonClasses: string[] = [
@@ -13,6 +13,7 @@ export default ({ url, small, inverse, onclick, children, classes }: {url?: stri
     'font-bold',
     'hover:border-current',
     'focus:border-current',
+    'font-heading',
     'bg-none'
   ];
 
@@ -40,6 +41,6 @@ export default ({ url, small, inverse, onclick, children, classes }: {url?: stri
   if (classes) buttonClasses.push(...classes);
 
   return (
-    <Element href={url} onClick={onclick} className={buttonClasses.join(' ')}>{children}</Element>
+    <Element href={url} onClick={onclick} className={buttonClasses.join(' ')} {...attributes}>{children}</Element>
   );
 }

@@ -22,19 +22,19 @@
   }
 
   h1 {
-    @apply text-title mb-1;
+    @apply text-title leading-[1.25] font-heading font-bold mb-1 md:mb-0;
   }
 
   h2 {
-    @apply text-xl mb-2;
+    @apply text-xl font-heading mb-1 md:mb-2;
   }
 
   h3 {
-    @apply text-large mb-1 leading-[1.125];
+    @apply text-large font-bold font-heading mb-1 leading-[1.125];
   }
 
   h4 {
-    @apply text-medium mb-0.75;
+    @apply text-medium font-heading mb-0.75;
   }
 
   h5 {

@@ -28,38 +28,29 @@
   /* Sizes */
   --text-base: clamp(20px, calc(24 / 1280 * 1vw), 24px);
   /* H1 */
-  --text-title: clamp(64px, calc(72 / 1280 * 1vw), 72px);
+  --text-title: clamp(54px, calc(60 / 1280 * 1vw), 60px);
   /* H2 */
-  --text-xl: clamp(56px, calc(64 / 1280 * 1vw), 64px);
+  --text-xl: clamp(48px, calc(58 / 1280 * 1vw), 58px);
   /* H3 */
-  --text-large: clamp(40px, calc(48 / 1280 * 1vw), 40px);
-  --text-lg: clamp(40px, calc(48 / 1280 * 1vw), 40px);
+  --text-large: clamp(36px, calc(42 / 1280 * 1vw), 42px);
+  --text-lg: var(--text-large);
   /* H4 */
   --text-medium: clamp(30px, calc(36 / 1280 * 1vw), 36px);
-  --text-md: clamp(30px, calc(36 / 1280 * 1vw), 36px);
+  --text-md: var(--text-medium);
   /* H5 */
   --text-small: clamp(24px, calc(28 / 1280 * 1vw), 28px);
-  --text-sm: clamp(24px, calc(28 / 1280 * 1vw), 28px);
+  --text-sm: var(--text-small);
   /* H6 */
   --text-xs: clamp(20px, calc(24 / 1280 * 1vw), 24px);
 
-  /* Title */
-  --font-cal-sans: 'Cal Sans', Verdana, sans-serif;
-  --font-title: var(--font-cal-sans);
-
   /* Heading */
-  --font-outfit: 'Outfit', Trebuchet, sans-serif;
-  --font-heading-eading: var(--font-outfit);
+  --font-urbanist: 'Urbanist', sans-serif;
+  --font-heading: var(--font-urbanist);
 
   /* Sans-serif body */
-  --font-manrope:
-    'Manrope', 'Ubuntu', 'Roboto', Helvetica, Arial, sans-serif;
-  --font-sans: var(--font-manrope);
-
-  /* Serif body */
-  --font-ibm-plex-serif:
-    'IBM Plex Serif', Georgia, 'Times New Roman', Times, serif;
-  --font-serif: var(--font-ibm-plex-serif);
+  --font-roboto:
+    'roboto', 'Ubuntu', 'Roboto', Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-roboto);
 
   /* -- Spacing -- */
   --spacing: 16px;

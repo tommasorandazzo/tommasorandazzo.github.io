@@ -13,7 +13,7 @@ const Experience: { [id: string]: Experience } = {
     endDate: undefined,
   },
   gravity_works: {
-    company: 'Gravity Work Design & Development',
+    company: 'Gravity Works Design & Development',
     title: 'Front-End Engineer',
     startDate: new Date('22 September 2020'),
     endDate: new Date('30 May 2023'),

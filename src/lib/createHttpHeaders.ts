@@ -14,9 +14,6 @@ export default (apiToken = false, values = {}) => {
     headerValues['X-API-TOKEN'] = import.meta.env.VITE_API_TOKEN;
   }
 
-  console.log(headerValues);
-
-
   // Set up and return headers.
   return new Headers(headerValues);
 };

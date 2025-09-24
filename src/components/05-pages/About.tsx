@@ -14,6 +14,8 @@ export default () => {
           </div>
         </div>
         <div className='grow-1 shrink-0 max-w-full basis-lg'>
+          <h1>Tommaso Randazzo</h1>
+          <p className="text-small font-bold mt-0">Full-Stack Drupal + React Developer</p>
           <AboutBody />
           <div className='flex gap-1 flex-wrap mt-2 mb-2'>
             <Button url='#work'>View My Work</Button>
