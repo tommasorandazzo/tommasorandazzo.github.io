@@ -23,6 +23,7 @@ export default defineConfig({
         pxtorem({
           rootValue: 16,
           propList: ['*'],
+          unitPrecision: 4,
         }),
       ],
     },
