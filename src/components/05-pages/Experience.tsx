@@ -26,7 +26,7 @@ export default ({ }) => {
             {/* Wrapper + Border */}
             <div className={`relative after:content-[''] after:w-full after:h-full after:absolute after:top-0 after:-left-1/2 after:border-r-4 md:after:border-r-8 after:border-r-secondary-1 after:translate-x-[2px] md:after:translate-x-[4px] after:-z-1 ${i === Object.keys(ExperienceItems).length - 1 ? 'after:border-dashed' : ''}`}>
               {/* Circle */}
-              <div className={`${i === 0 ? 'text-nearblack bg-secondary-1' : 'bg-nearblack text-secondary-1'} w-2 sm:w-3 md:w-4 h-auto aspect-square rounded-full grid place-items-center border-3 md:border-4 border-secondary-1`}>
+              <div className={`${i === 0 ? 'text-nearblack bg-secondary-1' : 'bg-nearblack text-secondary-1'} w-2 sm:w-3 md:w-4 h-auto aspect-square [border-radius:100%] grid place-items-center border-3 md:border-4 border-secondary-1`}>
                 {/* Icon */}
                 <FontAwesomeIcon icon={['fas', 'plus']} className='w-[50%]! h-auto!' />
               </div>
