@@ -102,11 +102,12 @@
 
 /* Animated Underline (hide on hover) */
 @utility animated-underline {
-  @apply no-underline bg-linear-to-r from-current to-current bg-bottom-left bg-size-[100%_1px] hover:bg-size-[0_1px] bg-no-repeat transition-[background-size] duration-initial ease-in-out;
+  @apply no-underline bg-[linear-gradient(90deg,var(--tw-current),var(--tw-current))] [--tw-current:currentColor] bg-bottom-left bg-size-[100%_1px] hover:bg-size-[0_1px] bg-no-repeat transition-[background-size] ease-in-out;
 }
 
 /* Animated Underline - Inverse (show on hover) */
-
 @utility animated-underline-reverse {
-  @apply no-underline bg-linear-to-r from-current to-current bg-bottom-left bg-size-[0_1px] hover:bg-size-[100%_1px] bg-no-repeat transition-[background-size] duration-initial ease-in-out;
+  --tw-current: currentColor; /* Fix firefox currentColor variable bug */
+
+  @apply no-underline bg-[linear-gradient(90deg,var(--tw-current),var(--tw-current))] [--tw-current:currentColor] bg-bottom-left bg-size-[0_1px] hover:bg-size-[100%_1px] bg-no-repeat transition-[background-size] duration-initial ease-in-out;
 }
