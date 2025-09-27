@@ -6,7 +6,6 @@ import Contact from "./components/05-pages/Contact";
 import Experience from "./components/05-pages/Experience";
 import Skills from "./components/05-pages/Skills";
 import Work from "./components/05-pages/Work";
-import Metatags from "./components/03-organisms/Metatags";
 import { library as FontAwesomeLibrary } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
