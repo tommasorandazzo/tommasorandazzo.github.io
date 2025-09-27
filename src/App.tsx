@@ -47,12 +47,6 @@ export const pages: PagesInterface = {
 export default ({ }) => {
   return (
     <>
-      <Metatags
-        title="Tommaso Randazzo"
-        sitename="tommaso.cc"
-        description="Full-Stack Drupal and React Developer"
-        social_img="/social.jpg"
-      />
       <Header />
       <main id="main-content" className="container p-1 md:p-2 xl:p-4">
         {Object.keys(pages).map(pageId => (
