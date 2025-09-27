@@ -14,7 +14,7 @@ const Experience: { [id: string]: Experience } = {
   },
   gravity_works: {
     company: 'Gravity Works Design & Development',
-    title: 'Front-End Engineer',
+    title: 'Front-End Developer',
     startDate: new Date('22 September 2020'),
     endDate: new Date('30 May 2023'),
   },
