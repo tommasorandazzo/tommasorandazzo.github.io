@@ -12,7 +12,7 @@
 }
 
 :root {
-  @apply text-[16px] text-white bg-nearblack;
+  @apply text-[16px] text-white bg-nearblack scheme-dark;
 }
 
 body {
