@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { pages } from "../../App";
+import { sections } from "../../App";
 
 export default () => {
-  const pageIds = Object.keys(pages);
+  const pageIds = Object.keys(sections);
   const [activeMenuItem, setActiveMenuItem] = useState('');
 
   function updateMenuEntry(id: string) {
@@ -35,7 +35,7 @@ export default () => {
   return (
     <header className="bg-primary-6 sticky top-0 left-0 w-full p-0.5 pl-0 pr-0 shadow-xl/5 z-1">
       <div className="container flex justify-between items-center pl-1 pr-1">
-        <a href="#" onClick={() => setTimeout(() => setActiveMenuItem(''), 500)} className="bg-none">
+        <a href={window.location.pathname === '/' ? '#' : '/'} onClick={() => setTimeout(() => setActiveMenuItem(''), 500)} className="bg-none">
           <img className="w-2.5" src="/logo.svg" alt="tommaso.cc" />
           <span className="visually-hidden">Home</span>
         </a>
@@ -43,7 +43,7 @@ export default () => {
           <ul className="flex flex-wrap gap-0.5 md:gap-1 m-0 p-0 items-center">
             {pageIds.filter(i => i !== 'about').map(pageId => (
               <li key={pageId}>
-                <a href={`#${pageId}`} className={`font-bold font-heading text-xs text-white ${activeMenuItem !== pageId &&'animated-underline-reverse'}`}>{pages[pageId].title}</a>
+                <a href={(window.location.pathname === '/' ? '#' : '/#') + pageId} className={`font-bold font-heading text-xs text-white ${activeMenuItem !== pageId &&'animated-underline-reverse'}`}>{sections[pageId].title}</a>
               </li>
             ))}
           </ul>

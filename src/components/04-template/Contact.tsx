@@ -8,7 +8,7 @@ import SocialLinks from '../02-molecules/SocialLinks';
 import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
 import fetchJson from '../../lib/fetchJson';
 
-export default () => {
+export default ({ title = 'Contact' }: { title?: string }) => {
   const [errorMessage, setErrorMessage] = useState<string|ReactNode>('')
   const [confirmation, setConfirmation] = useState(false)
   const [captchaSuccess, setCaptchaSuccess] = useState<string>('')
@@ -94,7 +94,7 @@ export default () => {
 
   return (
     <>
-      <h2>Contact</h2>
+      {title && <h2>{title}</h2>}
       <div className='md:flex gap-1 gap-x-2 lg:gap-x-4'>
         <div className='flex-1 mb-4'>
           <Contact />
