@@ -47,7 +47,6 @@ export default () => {
           <Route path="/" element={<Home />} />
           <Route path="/card" element={<ContactCard />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>
